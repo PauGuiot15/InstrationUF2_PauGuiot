@@ -11,7 +11,6 @@ public class Post {
     public String content;
     public String mediaUrl;
     public String mediaType;
-    public boolean canDelete;
     public Map<String, Boolean> likes = new HashMap<>();
 
     public long timeStamp;

@@ -57,10 +57,9 @@ public class ProfileFragment extends Fragment {
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Crear una instancia del EditProfileDialog
+
                 EditProfileDialog dialog = new EditProfileDialog();
 
-                // Mostrar el diálogo utilizando el FragmentManager
                 dialog.show(getParentFragmentManager(), "EditProfileDialog");
             }
         });

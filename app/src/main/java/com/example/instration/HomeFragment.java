@@ -50,9 +50,7 @@ public class HomeFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
@@ -70,7 +68,7 @@ public class HomeFragment extends Fragment {
 
         // RecyclerView
         RecyclerView postsRecyclerView = view.findViewById(R.id.postsRecyclerView);
-        postsRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext())); // Agregar el LayoutManager
+        postsRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
         Query query = FirebaseFirestore.getInstance().collection("posts").orderBy("timeStamp", Query.Direction.DESCENDING).limit(50);
 
@@ -96,16 +94,15 @@ public class HomeFragment extends Fragment {
         @NonNull
         @Override
         public CommentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            // Aquí debes inflar el diseño de cada elemento de comentario y crear un ViewHolder para él
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.comment_item, parent, false);
             return new CommentViewHolder(view);
         }
 
         @Override
         public void onBindViewHolder(@NonNull CommentViewHolder holder, int position) {
-            // Aquí debes asignar los datos de cada comentario al ViewHolder
             Comment comment = comments.get(position);
             holder.bind(comment);
+
         }
 
         @Override
@@ -125,8 +122,9 @@ public class HomeFragment extends Fragment {
 
             public void bind(Comment comment) {
                 commentTextView.setText(comment.getCommentText());
-                // Aquí puedes asignar cualquier otro dato del comentario a las vistas correspondientes
             }
+
+
         }
     }
 
@@ -321,7 +319,6 @@ public class HomeFragment extends Fragment {
                 holder.commentsRecyclerView.setAdapter(commentsAdapter);
             } else {
                 Log.d("HomeFragment", "La lista de comentarios está vacía");
-                // Si la lista de comentarios está vacía, muestra un mensaje o realiza alguna otra acción
             }
 
         }
